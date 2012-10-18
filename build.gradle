@@ -1,0 +1,33 @@
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'groovy'
+
+description = "Flyway plugin for Gradle"
+
+group = "org.gradle.api.plugins"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile gradleApi()
+    compile "com.googlecode.flyway:flyway-core:1.7"
+
+    groovy localGroovy()
+}
+
+
+def mavenLocalRepository = System.env.M2_HOME ?: "repo"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri(mavenLocalRepository))
+        }
+    }
+}
+
+
