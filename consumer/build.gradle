@@ -1,0 +1,17 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url uri('../repo')
+        }
+    }
+    dependencies {
+        classpath 'org.gradle.api.plugins:flyway:1.0-SNAPSHOT'
+    }
+}
+
+apply plugin: 'flyway'
+
+flyway {
+    configFile = "config value"
+}
