@@ -1,24 +1,12 @@
 package org.gradle.plugin.flyway
 
-import org.gradle.api.Project
+import org.gradle.plugin.FlywayPluginTestBase
 import org.gradle.plugin.flyway.domain.FlywayConfiguration
-import org.gradle.testfixtures.ProjectBuilder
-import org.junit.Before
 import org.junit.Test
 
-import static org.junit.Assert.assertEquals
-import static org.junit.Assert.assertTrue
-import static org.junit.Assert.fail
+import static org.junit.Assert.*
 
-public class FlywayPluginConventionTest {
-
-    Project project
-
-    @Before
-    public void setup() {
-        project = ProjectBuilder.builder().build()
-        project.apply plugin: 'flyway'
-    }
+public class FlywayPluginConventionTest extends FlywayPluginTestBase {
 
     @Test(expected = AssertionError.class)
     public void shouldAssertForConfigFile() {
@@ -29,7 +17,7 @@ public class FlywayPluginConventionTest {
     @Test
     public void shouldLoadConfigFile() {
 
-        String configFilePath = configFilePath()
+        String configFilePath = resourceFilePath("flyway-test-configuration.properties")
 
         project.flyway {
             configFile = project.file(configFilePath)
@@ -38,10 +26,7 @@ public class FlywayPluginConventionTest {
         def flywayConfiguration = project.convention.plugins.flyway.flywayConfiguration
         assertTrue(flywayConfiguration instanceof FlywayConfiguration)
 
-        assertEquals("someurl", flywayConfiguration.getDbUrl())
+        assertEquals("jdbc:h2:mem:flyway", flywayConfiguration.getDbUrl())
     }
 
-    private String configFilePath() {
-        Thread.currentThread().getContextClassLoader().getResource("flyway-test-configuration.properties").getPath()
-    }
 }
