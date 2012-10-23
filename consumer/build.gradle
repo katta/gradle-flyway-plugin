@@ -7,11 +7,12 @@ buildscript {
     }
     dependencies {
         classpath 'org.gradle.api.plugins:flyway:1.0-SNAPSHOT'
+        classpath 'postgresql:postgresql:9.1-901.jdbc4'
     }
 }
 
 apply plugin: 'flyway'
 
 flyway {
-    configFile = "config value"
+    configFile = file("flyway-config.properties")
 }

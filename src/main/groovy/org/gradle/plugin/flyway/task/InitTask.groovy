@@ -2,16 +2,17 @@ package org.gradle.plugin.flyway.task
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
+import com.googlecode.flyway.core.Flyway
+import org.gradle.plugin.flyway.domain.FlywayConfiguration
 
 class InitTask extends DefaultTask {
 
     @TaskAction
     def init() {
-        group = "Flyway"
+        FlywayConfiguration configuration = getProject().convention.plugins.flyway.flywayConfiguration
 
-        println(getProject().convention.plugins.flyway.configFile)
-
-        println "initializing flyway plugin !!"
+        Flyway flyway = new Flyway()
+        flyway.configure(configuration.getProperties())
+        flyway.init()
     }
-
 }

@@ -8,8 +8,11 @@ class FlywayConfiguration {
         this.properties = properties;
     }
 
-
     String getDbUrl() {
         return properties.getProperty("flyway.url")
+    }
+
+    Properties getProperties() {
+        return this.properties;
     }
 }

@@ -14,6 +14,4 @@ class FlywayPlugin implements Plugin<Project> {
 
         project.task("init", type: InitTask, description: "Initializes the database with flyway metatable")
     }
-
-
 }
