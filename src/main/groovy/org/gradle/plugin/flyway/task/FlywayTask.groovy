@@ -15,5 +15,8 @@ abstract class FlywayTask extends DefaultTask {
 
         flyway = new Flyway()
         flyway.configure(configuration.getProperties())
+
+        def contextClassLoader = Thread.currentThread().getContextClassLoader()
+        contextClassLoader.addURL project.rootDir.toURL()
     }
 }
