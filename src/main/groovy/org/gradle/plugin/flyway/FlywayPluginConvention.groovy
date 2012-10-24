@@ -2,10 +2,7 @@ package org.gradle.plugin.flyway
 
 import org.gradle.api.Project
 import org.gradle.plugin.flyway.domain.FlywayConfiguration
-import org.gradle.plugin.flyway.task.InitTask
-import org.gradle.plugin.flyway.task.MigrateTask
-import org.gradle.plugin.flyway.task.CleanTask
-import org.gradle.plugin.flyway.task.ValidateTask
+import org.gradle.plugin.flyway.task.FlywayTask
 
 class FlywayPluginConvention {
 
@@ -24,10 +21,18 @@ class FlywayPluginConvention {
 
         loadFlywayConfiguration()
 
-        project.task("flywayClean", type: CleanTask, description: "Drops all database objects including the schema version metatable")
-        project.task("flywayInit", type: InitTask, description: "Initializes the database with flyway schema version metatable")
-        project.task("flywayMigrate", type: MigrateTask, description: "Migrates the database with migrations")
-        project.task("flywayValidate", type: ValidateTask, description: "Validates the applied migrations against the ones available on the classpath")
+        project.task("flywayClean", type: FlywayTask, description: "Drops all database objects including the schema version metatable") {
+            action = "clean"
+        }
+        project.task("flywayInit", type: FlywayTask, description: "Initializes the database with flyway schema version metatable") {
+            action = "init"
+        }
+        project.task("flywayMigrate", type: FlywayTask, description: "Migrates the database with migrations") {
+            action = "migrate"
+        }
+        project.task("flywayValidate", type: FlywayTask, description: "Validates the applied migrations against the ones available on the classpath") {
+            action = "validate"
+        }
     }
 
     private void loadFlywayConfiguration() {

@@ -7,6 +7,6 @@ public class InitTaskTest extends FlywayPluginTestBase {
 
     @Test
     public void shouldExecuteInitTask() {
-        findTask("init").execute();
+        findTask("flywayInit").execute();
     }
 }

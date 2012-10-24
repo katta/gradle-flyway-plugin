@@ -7,6 +7,6 @@ public class MigrateTaskTest extends FlywayPluginTestBase {
 
     @Test
     public void shouldMigrate() {
-        findTask("migrate").execute();
+        findTask("flywayMigrate").execute();
     }
 }
