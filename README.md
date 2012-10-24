@@ -16,7 +16,10 @@ You can get this help by running `gradle tasks --all` under `Flyway tasks` secti
 
     buildscript {
         repositories {
-         ....
+            mavenCentral()
+            maven {
+                url uri('http://katta.github.com/repository')
+            }
         }
         dependencies {
             classpath 'org.gradle.api.plugins:flyway:1.0-SNAPSHOT'
