@@ -49,4 +49,8 @@ Any configuration that has to be given to flyway has to be mentioned in a proper
 
 For the complete refence of flyway configuration(options) refer flyway [wiki](http://code.google.com/p/flyway/wiki/CommandLineMigrate) under each of the commands
 
+# Release Versions
+
+Version 1.0 is released - To use it you just have to add a new `repository` in your build pointing to the URL `https://katta.github.com/repository` and declare a classpath dependency to `org.gradle.api.plugins:flyway:1.0`
+
 
