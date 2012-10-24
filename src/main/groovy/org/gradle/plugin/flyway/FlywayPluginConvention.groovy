@@ -4,6 +4,7 @@ import org.gradle.api.Project
 import org.gradle.plugin.flyway.domain.FlywayConfiguration
 import org.gradle.plugin.flyway.task.InitTask
 import org.gradle.plugin.flyway.task.MigrateTask
+import org.gradle.plugin.flyway.task.CleanTask
 
 class FlywayPluginConvention {
 
@@ -22,6 +23,7 @@ class FlywayPluginConvention {
 
         loadFlywayConfiguration()
 
+        project.task("clean", type: CleanTask, description: "Drops all database objects including the schema version metatable")
         project.task("init", type: InitTask, description: "Initializes the database with flyway schema version metatable")
         project.task("migrate", type: MigrateTask, description: "Migrates the database with migrations")
     }

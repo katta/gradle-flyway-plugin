@@ -21,5 +21,4 @@ public class FlywayPluginConventionTest extends FlywayPluginTestBase {
 
         assertEquals("jdbc:h2:mem:flyway", flywayConfiguration.getDbUrl())
     }
-
 }
