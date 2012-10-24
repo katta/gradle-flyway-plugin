@@ -3,6 +3,7 @@ package org.gradle.plugin.flyway
 import org.gradle.api.Project
 import org.gradle.plugin.flyway.domain.FlywayConfiguration
 import org.gradle.plugin.flyway.task.FlywayTask
+import org.gradle.plugin.flyway.task.StatusTask
 
 class FlywayPluginConvention {
 
@@ -33,6 +34,7 @@ class FlywayPluginConvention {
         project.task("flywayValidate", type: FlywayTask, description: "Validates the applied migrations against the ones available on the classpath") {
             action = "validate"
         }
+        project.task("flywayStatus", type: StatusTask, description: "Prints the current version of the schema")
     }
 
     private void loadFlywayConfiguration() {
