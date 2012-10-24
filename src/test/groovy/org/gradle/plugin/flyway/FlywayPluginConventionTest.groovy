@@ -19,6 +19,6 @@ public class FlywayPluginConventionTest extends FlywayPluginTestBase {
         def flywayConfiguration = project.convention.plugins.flyway.flywayConfiguration
         assertTrue(flywayConfiguration instanceof FlywayConfiguration)
 
-        assertEquals("jdbc:h2:mem:flyway", flywayConfiguration.getDbUrl())
+        assertEquals("jdbc:h2:mem:flyway", flywayConfiguration.properties["flyway.url"])
     }
 }
