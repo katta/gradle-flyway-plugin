@@ -22,7 +22,7 @@ You can get this help by running `gradle tasks --all` under `Flyway tasks` secti
             }
         }
         dependencies {
-            classpath 'org.gradle.api.plugins:flyway:1.0-SNAPSHOT'
+            classpath 'org.gradle.api.plugins:flyway:1.0'
             classpath 'postgresql:postgresql:9.1-901.jdbc4'
         }
     }
