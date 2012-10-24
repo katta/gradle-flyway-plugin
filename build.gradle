@@ -24,6 +24,10 @@ dependencies {
 
 def mavenLocalRepository = System.env.M2_HOME ?: "repo"
 
+task("release") {
+    mavenLocalRepository = "release"
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {

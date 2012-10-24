@@ -8,5 +8,9 @@ public class MigrateTaskTest extends FlywayPluginTestBase {
     @Test
     public void shouldMigrate() {
         findTask("flywayMigrate").execute();
+
+        def firstRow = dbConnector().firstRow("select * from employee");
+        assert "katta".equals(firstRow.getProperty("emp_name"))
     }
+
 }
