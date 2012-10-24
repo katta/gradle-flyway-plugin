@@ -16,13 +16,6 @@ public class FlywayPluginConventionTest extends FlywayPluginTestBase {
 
     @Test
     public void shouldLoadConfigFile() {
-
-        String configFilePath = resourceFilePath("flyway-test-configuration.properties")
-
-        project.flyway {
-            configFile = project.file(configFilePath)
-        }
-
         def flywayConfiguration = project.convention.plugins.flyway.flywayConfiguration
         assertTrue(flywayConfiguration instanceof FlywayConfiguration)
 

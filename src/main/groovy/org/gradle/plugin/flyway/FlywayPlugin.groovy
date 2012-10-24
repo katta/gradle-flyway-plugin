@@ -12,8 +12,5 @@ class FlywayPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.convention.plugins.flyway = new FlywayPluginConvention(project)
-
-        project.task("init", type: InitTask, description: "Initializes the database with flyway metatable")
-        project.task("migrate", type: MigrateTask, description: "Migrates the database with migrations specified")
     }
 }

@@ -7,10 +7,11 @@ import org.gradle.api.Task
 
 public class FlywayPluginTestBase {
 
-    protected Project project = ProjectBuilder.builder().build()
+    protected Project project;
 
     @Before
     public void setupBase() {
+        project = ProjectBuilder.builder().build()
         project.apply plugin: 'flyway'
 
         project.flyway {
