@@ -5,7 +5,7 @@ apply plugin: 'groovy'
 description = "Flyway plugin for Gradle"
 
 group = "org.gradle.api.plugins"
-version = "1.0-SNAPSHOT"
+version = "2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
