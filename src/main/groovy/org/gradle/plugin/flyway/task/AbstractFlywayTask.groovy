@@ -8,7 +8,6 @@ import org.gradle.api.tasks.TaskAction
 abstract class AbstractFlywayTask extends DefaultTask {
 
     protected Flyway flyway;
-    protected String action;
 
     AbstractFlywayTask() {
         group = "Flyway"

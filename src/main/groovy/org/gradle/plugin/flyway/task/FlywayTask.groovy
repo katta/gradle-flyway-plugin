@@ -6,7 +6,11 @@ class FlywayTask extends AbstractFlywayTask {
 
     @TaskAction
     def executeFlywayAction() {
-        flyway ."$action"()
+
+        def taskAction = this.name.replaceFirst("flyway","").toLowerCase();
+        println "Executing flyway $taskAction"
+
+        flyway ."$taskAction"()
     }
 
 }

@@ -22,18 +22,10 @@ class FlywayPluginConvention {
 
         loadFlywayConfiguration()
 
-        project.task("flywayClean", type: FlywayTask, description: "Drops all database objects including the schema version metatable") {
-            action = "clean"
-        }
-        project.task("flywayInit", type: FlywayTask, description: "Initializes the database with flyway schema version metatable") {
-            action = "init"
-        }
-        project.task("flywayMigrate", type: FlywayTask, description: "Migrates the database with migrations") {
-            action = "migrate"
-        }
-        project.task("flywayValidate", type: FlywayTask, description: "Validates the applied migrations against the ones available on the classpath") {
-            action = "validate"
-        }
+        project.task("flywayClean", type: FlywayTask, description: "Drops all database objects including the schema version metatable")
+        project.task("flywayInit", type: FlywayTask, description: "Initializes the database with flyway schema version metatable")
+        project.task("flywayMigrate", type: FlywayTask, description: "Migrates the database with migrations")
+        project.task("flywayValidate", type: FlywayTask, description: "Validates the applied migrations against the ones available on the classpath")
         project.task("flywayStatus", type: StatusTask, description: "Prints the current version of the schema")
     }
 
