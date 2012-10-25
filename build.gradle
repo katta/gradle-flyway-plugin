@@ -20,13 +20,15 @@ dependencies {
 
 apply from: "https://launchpad.net/gradle-release/trunk/latest/+download/apply.groovy"
 
-def mavenLocalRepository = System.env.M2_HOME ?: "repo"
 
-/*
-task("release") {
-    mavenLocalRepository = "release"
+
+def mavenLocalRepository = ""
+
+if (hasProperty('releaseDir')) {
+    mavenLocalRepository = releaseDir
+} else {
+    mavenLocalRepository = System.env.M2_HOME ?: "repo"
 }
-*/
 
 uploadArchives {
     repositories {
