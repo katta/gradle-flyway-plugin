@@ -4,7 +4,7 @@ import org.gradle.plugin.FlywayPluginTestBase
 import org.gradle.plugin.flyway.domain.FlywayConfiguration
 import org.junit.Test
 
-import static org.junit.Assert.*
+import static org.junit.Assert.fail
 
 public class FlywayPluginConventionTest extends FlywayPluginTestBase {
 
@@ -17,8 +17,8 @@ public class FlywayPluginConventionTest extends FlywayPluginTestBase {
     @Test
     public void shouldLoadConfigFile() {
         def flywayConfiguration = project.convention.plugins.flyway.flywayConfiguration
-        assertTrue(flywayConfiguration instanceof FlywayConfiguration)
 
-        assertEquals("jdbc:h2:flyway-test", flywayConfiguration.properties["flyway.url"])
+        assert flywayConfiguration instanceof FlywayConfiguration
+        assert "jdbc:h2:flyway-test".equals(flywayConfiguration.properties["flyway.url"])
     }
 }
