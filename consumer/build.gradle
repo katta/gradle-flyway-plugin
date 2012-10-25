@@ -6,7 +6,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'org.gradle.api.plugins:flyway:1.0-SNAPSHOT'
+        classpath 'org.katta.gradle.api.plugins:flyway:1.1-SNAPSHOT'
         classpath 'postgresql:postgresql:9.1-901.jdbc4'
     }
 }
