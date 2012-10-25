@@ -1,8 +1,8 @@
-package org.gradle.plugin.flyway.task
+package org.katta.gradle.plugin.flyway.task
 
 import com.googlecode.flyway.core.Flyway
 import org.gradle.api.DefaultTask
-import org.gradle.plugin.flyway.domain.FlywayConfiguration
+import org.katta.gradle.plugin.flyway.domain.FlywayConfiguration
 import org.gradle.api.tasks.TaskAction
 
 abstract class AbstractFlywayTask extends DefaultTask {

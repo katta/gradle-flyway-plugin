@@ -1,4 +1,4 @@
-package org.gradle.plugin.flyway.domain
+package org.katta.gradle.plugin.flyway.domain
 
 class FlywayConfiguration {
 

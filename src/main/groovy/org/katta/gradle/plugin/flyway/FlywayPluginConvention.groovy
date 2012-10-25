@@ -1,9 +1,10 @@
-package org.gradle.plugin.flyway
+package org.katta.gradle.plugin.flyway
 
 import org.gradle.api.Project
-import org.gradle.plugin.flyway.domain.FlywayConfiguration
-import org.gradle.plugin.flyway.task.FlywayTask
-import org.gradle.plugin.flyway.task.StatusTask
+import org.katta.gradle.plugin.flyway.domain.FlywayConfiguration
+import org.katta.gradle.plugin.flyway.task.FlywayTask
+import org.katta.gradle.plugin.flyway.task.StatusTask
+import org.katta.gradle.plugin.flyway.task.StatusTask
 
 class FlywayPluginConvention {
 

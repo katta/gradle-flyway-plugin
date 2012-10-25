@@ -4,13 +4,9 @@ apply plugin: 'groovy'
 
 description = "Flyway plugin for Gradle"
 
-group = "org.gradle.api.plugins"
-version = "2.0-SNAPSHOT"
-
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     compile gradleApi()
@@ -22,11 +18,15 @@ dependencies {
 }
 
 
+apply from: "https://launchpad.net/gradle-release/trunk/latest/+download/apply.groovy"
+
 def mavenLocalRepository = System.env.M2_HOME ?: "repo"
 
+/*
 task("release") {
     mavenLocalRepository = "release"
 }
+*/
 
 uploadArchives {
     repositories {

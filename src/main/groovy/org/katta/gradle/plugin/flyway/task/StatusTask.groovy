@@ -1,4 +1,4 @@
-package org.gradle.plugin.flyway.task
+package org.katta.gradle.plugin.flyway.task
 
 import org.gradle.api.tasks.TaskAction
 import com.googlecode.flyway.core.metadatatable.MetaDataTableRow

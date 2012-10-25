@@ -1,7 +1,7 @@
 package org.gradle.plugin.flyway
 
 import org.gradle.plugin.FlywayPluginTestBase
-import org.gradle.plugin.flyway.domain.FlywayConfiguration
+import org.katta.gradle.plugin.flyway.domain.FlywayConfiguration
 import org.junit.Test
 
 import static org.junit.Assert.fail

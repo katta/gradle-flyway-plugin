@@ -1,4 +1,4 @@
-package org.gradle.plugin.flyway
+package org.katta.gradle.plugin.flyway
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
