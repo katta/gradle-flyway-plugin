@@ -22,7 +22,7 @@ You can get this help by running `gradle tasks --all` under `Flyway tasks` secti
             }
         }
         dependencies {
-            classpath 'org.gradle.api.plugins:flyway:1.0'
+            classpath 'org.katta.gradle.api.plugins:flyway:1.1'
             classpath 'postgresql:postgresql:9.1-901.jdbc4'
         }
     }
@@ -54,6 +54,8 @@ For the complete refence of flyway configuration(options) refer flyway [wiki](ht
 
 # Release Versions
 
-*Version 1.0* is released - To use it you just have to add a new `repository` in your build pointing to the URL `http://katta.github.com/repository` and declare a classpath dependency to `org.gradle.api.plugins:flyway:1.0`
+To use a release version you just have to add a new `repository` in your build pointing to the URL `http://katta.github.com/repository` and declare a classpath dependency to flyway plugin by adding `org.katta.gradle.api.plugins:flyway:1.1`
+
+* Latest Release - `1.1`
 
 
