@@ -30,7 +30,10 @@ You can get this help by running `gradle tasks --all` under `Flyway tasks` secti
     apply plugin: 'flyway'
 
     flyway {
-        configFile = file("flyway-config.properties")
+        driver='org.postgresql.Driver'
+        url='jdbc:postgresql://127.0.0.1/flyway'
+        user='postgres'
+        password='s#cRet'
     }
 
 To use flyway plugin all you have to do is configure your gradle build with the above settings.
