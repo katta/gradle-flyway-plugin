@@ -70,7 +70,7 @@ For the details on what each of the above config means refer flyway [wiki](http:
 
 # Release Versions
 
-* Latest Relese 1.4
+* Latest Relese 1.3
 * [Release specific documentation](https://github.com/katta/gradle-flyway-plugin/wiki/Release-Versions)
 
 
