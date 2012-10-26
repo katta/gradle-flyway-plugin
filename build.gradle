@@ -24,6 +24,8 @@ uploadArchives {
     }
 }
 
+createReleaseTag.dependsOn uploadArchives
+
 String repositoryToUpload() {
     def mavenLocalRepository
     if (hasProperty('releaseDir')) {
