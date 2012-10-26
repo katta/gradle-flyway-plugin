@@ -59,8 +59,6 @@ The only mandatory configs are the ones mentioned above. Apart from this the fol
     sqlMigrationPrefix
     sqlMigrationSuffix
     encoding
-    placeholders.aplaceholder
-    placeholders.otherplaceholder
     placeholderPrefix
     placeholderSuffix
     target
