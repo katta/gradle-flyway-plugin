@@ -21,12 +21,12 @@ def repositoryToUpload = System.env.M2_HOME ?: "repo"
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri(repositoryToUpload))
+            repository(url: uri("$repositoryToUpload"))
         }
     }
 }
 
-release.doFirst {
+createReleaseTag.dependsOn uploadArchives
+confirmReleaseVersion.doLast {
     repositoryToUpload = releaseDir
 }
-createReleaseTag.dependsOn uploadArchives
