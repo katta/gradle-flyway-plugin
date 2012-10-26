@@ -16,17 +16,22 @@ dependencies {
     testCompile "com.h2database:h2:1.3.160"
 }
 
-
-def repositoryToUpload = System.env.M2_HOME ?: "repo"
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri("$repositoryToUpload"))
+            repository(url: uri(repositoryToUpload()))
         }
     }
 }
 
 createReleaseTag.dependsOn uploadArchives
-confirmReleaseVersion.doLast {
-    repositoryToUpload = releaseDir
+
+String repositoryToUpload() {
+    def mavenLocalRepository
+    if (hasProperty('releaseDir')) {
+        mavenLocalRepository = releaseDir
+    } else {
+        mavenLocalRepository = System.env.M2_HOME ?: "repo"
+    }
+    mavenLocalRepository
 }
