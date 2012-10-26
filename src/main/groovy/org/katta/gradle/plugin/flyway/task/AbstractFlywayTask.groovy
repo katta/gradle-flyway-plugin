@@ -36,7 +36,7 @@ abstract class AbstractFlywayTask extends DefaultTask {
     }
 
     private void checkIfExists(Properties properties, String keyToCheck) {
-        if (!properties.hasProperty(keyToCheck)) {
+        if (properties.getProperty(keyToCheck) == null) {
             def key = keyToCheck.replaceFirst("flyway.", "").toLowerCase()
             throw new GradleException("[$key] property must be defined in flyway closure");
         }
