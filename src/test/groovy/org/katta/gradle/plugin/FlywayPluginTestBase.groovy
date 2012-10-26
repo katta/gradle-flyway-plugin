@@ -1,4 +1,4 @@
-package org.gradle.plugin
+package org.katta.gradle.plugin
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder

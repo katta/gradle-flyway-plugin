@@ -1,6 +1,6 @@
-package org.gradle.plugin.task
+package org.katta.gradle.plugin.task
 
-import org.gradle.plugin.FlywayPluginTestBase
+import org.katta.gradle.plugin.FlywayPluginTestBase
 import org.junit.Test
 
 public class MigrateTaskTest extends FlywayPluginTestBase {
