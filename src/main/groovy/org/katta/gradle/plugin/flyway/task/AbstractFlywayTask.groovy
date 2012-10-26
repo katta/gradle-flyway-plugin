@@ -4,6 +4,8 @@ import com.googlecode.flyway.core.Flyway
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
+import org.gradle.api.GradleException
+
 abstract class AbstractFlywayTask extends DefaultTask {
 
     Flyway flyway;
@@ -18,9 +20,26 @@ abstract class AbstractFlywayTask extends DefaultTask {
     @TaskAction
     def executeFlywayTask() {
         flyway = new Flyway()
-        flyway.configure(retrieveConfiguration())
+        def config = retrieveConfiguration()
+        validate(config)
+
+        flyway.configure(config)
 
         executeTask(flyway)
+    }
+
+    def validate(Properties properties) {
+        checkIfExists(properties, "flyway.url")
+        checkIfExists(properties, "flyway.driver")
+        checkIfExists(properties, "flyway.user")
+        checkIfExists(properties, "flyway.password")
+    }
+
+    private void checkIfExists(Properties properties, String keyToCheck) {
+        if (!properties.hasProperty(keyToCheck)) {
+            def key = keyToCheck.replaceFirst("flyway.", "").toLowerCase()
+            throw new GradleException("[$key] property must be defined in flyway closure");
+        }
     }
 
     abstract void executeTask(Flyway flyway);
