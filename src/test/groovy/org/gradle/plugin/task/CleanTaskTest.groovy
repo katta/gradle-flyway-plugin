@@ -10,12 +10,12 @@ public class CleanTaskTest extends FlywayPluginTestBase {
 
         def sql = dbConnector()
 
-        findTask("flywayInit").execute();
+        project.tasks.flywayInit.execute();
 
         def tablesResultSet = dbConnector().connection.metaData.getTables(null, "PUBLIC", "SCHEMA_VERSION", null)
         assert tablesResultSet.next()
 
-        findTask("flywayClean").execute();
+        project.tasks.flywayClean.execute();
 
         tablesResultSet = sql.connection.metaData.getTables(null, "PUBLIC", "schema_version", null)
         assert !tablesResultSet.next()

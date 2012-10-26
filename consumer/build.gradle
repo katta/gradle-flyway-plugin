@@ -14,5 +14,9 @@ buildscript {
 apply plugin: 'flyway'
 
 flyway {
-    configFile = file("flyway-config.properties")
+    driver='org.postgresql.Driver'
+    url='jdbc:postgresql://127.0.0.1/flyway'
+    user='postgres'
+    password='password'
+    schemas='appdb'
 }
