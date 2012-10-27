@@ -1,6 +1,6 @@
 # Gradle plugin for Flyway
 
-This plugin povides gradle dsl for flyway tasks 
+This plugin povides gradle tasks to run flyway migrations
 
 # Flyway Tasks
 
