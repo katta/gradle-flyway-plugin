@@ -2,6 +2,10 @@
 
 This plugin povides gradle tasks to run flyway migrations
 
+## Build Status
+
+[![Build Status](https://secure.travis-ci.org/katta/gradle-flyway-plugin.png)](http://travis-ci.org/katta/gradle-flyway-plugin)
+
 # Flyway Tasks
 
     flywayClean - Drops all database objects including the schema version metatable
