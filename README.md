@@ -14,27 +14,29 @@ You can get this help by running `gradle tasks --all` under `Flyway tasks` secti
 
 # Usage
 
-    buildscript {
-        repositories {
-            mavenCentral()
-            maven {
-                url uri('http://katta.github.com/repository')
-            }
-        }
-        dependencies {
-            classpath 'org.katta.gradle.api.plugins:flyway:[VERSION]'
-            classpath 'postgresql:postgresql:9.1-901.jdbc4'
+```groovy
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url uri('http://katta.github.com/repository')
         }
     }
-
-    apply plugin: 'flyway'
-
-    flyway {
-        driver='org.postgresql.Driver'
-        url='jdbc:postgresql://127.0.0.1/flyway'
-        user='postgres'
-        password='s#cRet'
+    dependencies {
+        classpath 'org.katta.gradle.api.plugins:flyway:[VERSION]'
+        classpath 'postgresql:postgresql:9.1-901.jdbc4'
     }
+}
+
+apply plugin: 'flyway'
+
+flyway {
+    driver='org.postgresql.Driver'
+    url='jdbc:postgresql://127.0.0.1/flyway'
+    user='postgres'
+    password='s#cRet'
+}
+```
 
 To use flyway plugin all you have to do is configure your gradle build with the above settings.
 
@@ -47,12 +49,14 @@ To use flyway plugin all you have to do is configure your gradle build with the 
 
 You can configure flyway plugin by specifying the appropritate config values in flyway closure like this
 
-    flyway {
-        driver='org.postgresql.Driver'
-        url='jdbc:postgresql://127.0.0.1/flyway'
-        user='postgres'
-        password='s#cRet'
-    }
+```groovy
+flyway {
+    driver='org.postgresql.Driver'
+    url='jdbc:postgresql://127.0.0.1/flyway'
+    user='postgres'
+    password='s#cRet'
+}
+```
 
 The only mandatory configs are the ones mentioned above. Apart from this the following configs are supported
 
