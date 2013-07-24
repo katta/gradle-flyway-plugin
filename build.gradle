@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     compile gradleApi()
-    compile "com.googlecode.flyway:flyway-core:1.7"
+    compile "com.googlecode.flyway:flyway-core:2.1.1"
 
     groovy localGroovy()
 
