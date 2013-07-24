@@ -1,0 +1,38 @@
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'groovy'
+apply from: "https://launchpad.net/gradle-release/trunk/latest/+download/apply.groovy"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    compile "com.googlecode.flyway:flyway-core:2.1.1"
+
+    groovy localGroovy()
+
+    testCompile "com.h2database:h2:1.3.160"
+}
+
+
+if (project.ext.has('cloudbeesUser')) {
+  project.uploadArchives {
+    repositories {
+      mavenDeployer {
+        configuration = project.configurations.deployerJars
+        
+        snapshotRepository(url: "dav:https://repository-zorggemak.forge.cloudbees.com/snapshot/") {
+          authentication(userName: project.ext.cloudbeesUser, password: project.ext.cloudbeesPassword)
+        }
+        
+        repository(url: "dav:https://repository-zorggemak.forge.cloudbees.com/release/") {
+          authentication(userName: project.ext.cloudbeesUser, password: project.ext.cloudbeesPassword)
+        }
+      }
+    }
+  }
+}
+
+createReleaseTag.dependsOn uploadArchives
