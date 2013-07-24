@@ -18,6 +18,15 @@ dependencies {
 
 
 if (project.ext.has('cloudbeesUser')) {
+  project.configurations {
+    deployerJars
+  }
+  
+  project.dependencies {
+    // wagon used to deploy to cloudbees
+    deployerJars "org.apache.maven.wagon:wagon-webdav:1.0-beta-2"
+  }
+  
   project.uploadArchives {
     repositories {
       mavenDeployer {
